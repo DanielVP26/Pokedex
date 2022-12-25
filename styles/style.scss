@@ -1,0 +1,306 @@
+@font-face {
+    font-family: 'Retro';
+    src: url(../assets/fonts/Retro\ Gaming.ttf);
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    margin: 0;
+}
+
+// crear variables con colores de tipos de pokemon
+$normal: #A8A77A;
+$fire: #EE8130;
+$water: #6390F0;
+$electric: #F7D02C;
+$grass: #7AC74C;
+$ice: #96D9D6;
+$fighting: #C22E28;
+$poison: #A33EA1;
+$ground: #E2BF65;
+$flying: #A98FF3;
+$psychic: #F95587;
+$bug: #A6B91A;
+$rock: #B6A136;
+$ghost: #735797;
+$dragon: #6F35FC;
+$dark: #705746;
+$steel: #B7B7CE;
+$fairy: #D685AD;
+// crear variables con colores de tipos de pokemon
+
+//clase para los tipos de pokemon con el color de la variable
+.normal{
+    background-color: $normal;
+}
+.fire{
+    background-color: $fire;
+}
+.water{
+    background-color: $water;
+}
+.electric{
+    background-color: $electric;
+}
+.grass{
+    background-color: $grass;
+}
+.ice{
+    background-color: $ice;
+}
+.fighting{
+    background-color: $fighting;
+}
+.poison{
+    background-color: $poison;
+}
+.ground{
+    background-color: $ground;
+}
+.flying{
+    background-color: $flying;
+}
+.psychic{
+    background-color: $psychic;
+}
+.bug{
+    background-color: $bug;
+}
+.rock{
+    background-color: $rock;
+}
+.ghost{
+    background-color: $ghost;
+}
+.dragon{
+    background-color: $dragon;
+}
+.dark{
+    background-color: $dark;
+}
+.steel{
+    background-color: $steel;
+}
+.fairy{
+    background-color: $fairy;
+}
+p{
+    margin: 0;
+}
+.fa-search{
+    color: white;
+}
+.header{
+    background-color: #DA0037;
+    padding: 1rem;
+    justify-items: center;
+    color: white;
+    font-family: 'Retro';
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.gapLogo{
+    gap: 2.5rem;
+}
+#search{
+    padding: 0.5rem;
+    border-radius: 1em;
+}
+.pokeSelect{
+    background-color: rgb(58, 58, 58);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+    font-family: 'Retro';
+    justify-items: center;
+}
+.pokeSelect img{
+    width: 15rem;
+}
+.imagenPrincipal{
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    text-transform: uppercase;
+}
+.ID{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-family: 'Retro';
+    font-size: 0.8rem;
+}
+.infoPrincipal{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Retro';
+    gap: 1rem;
+    text-transform: uppercase;
+}
+.bg-green{
+    background-color: #000;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+.margin3rem{
+    margin-block: 3rem;
+}
+
+#pokemonGeneral{
+    display: grid;
+    gap: 1rem;
+    margin-block: 2rem; 
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    padding-inline: 5rem;
+}
+.pokemonCard{
+    background-color: white;
+    position: relative;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 1rem ;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    &:hover{
+        scale: 1.04;
+        cursor: pointer;
+    }
+}
+.imgPokemonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 2rem;
+}
+.imgPokemon{
+    height: 10rem;
+}
+.idPokemon{
+    font-size: 0.8remem;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    font-family: 'Retro';
+}
+.typePokemon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.btn-tipo{
+    padding: .25rem 0.5rem;
+    border-radius: 100vmax;
+    border: none;
+    text-transform: uppercase;
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.8rem; 
+    transition: all 0.3s ease;
+    &:hover{
+        scale: 1.1;
+    }
+}
+.btnTypeFilter{
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    text-transform: uppercase;
+}
+.namePokemon{
+    font-family: 'Roboto Slab', serif;
+color: #000;
+}
+.bannerPrincipal{
+
+    margin-block: 3rem;
+}
+.containerTipos{
+    display: flex;
+}
+/* TABLET */
+@media screen and (max-width: 992px) {
+    .gapLogo{
+        gap: 0;
+    }
+    .form-check{
+        padding: 0;
+    }
+    .form-switch{
+        padding: 0;
+    }
+    #pokemonGeneral{
+        grid-template-columns: repeat(2, 1fr);
+        padding-inline: 1rem;
+    }
+  }
+  
+  /* TELEFONO */
+  @media screen and (max-width: 565px) {
+    .header{
+        grid-template-columns: 1fr;
+    }
+    .icon{
+        display: none;
+    }
+    .gapLogo{
+        gap: 1rem;
+    }
+    .pokeSelect{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    #pokemonGeneral{
+        grid-template-columns: 1fr;
+        padding-inline: 1rem;
+    }
+    .filtros{
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .containerTipos>div{
+        width: 100%;
+    }
+    .containerTipos{
+        display: block;
+    }
+  }
+
+/* @media screen and (min-width: 480){
+    body{
+        display: none;
+    }
+} */
+/* @media screen and (min-width: 768px){
+    #pokemonGeneral{
+        grid-template-columns: repeat(4, 1fr);
+        padding-inline: 10rem;
+    }
+    .pokeSelect{
+        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
+    }
+} */
+
