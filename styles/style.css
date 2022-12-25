@@ -228,6 +228,7 @@ p {
   padding: 0.25rem 0.5rem;
   border-radius: 100vmax;
   border: none;
+  color: #000;
   text-transform: uppercase;
   font-family: "Roboto Slab", serif;
   font-size: 0.8rem;
