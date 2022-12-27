@@ -313,6 +313,11 @@ color: #000;
     .containerTipos{
         display: block;
     }
+    .form-switch{
+        .form-check-input{
+            margin: 0;
+        }
+    }
   }
 
 /* @media screen and (min-width: 480){
