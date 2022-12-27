@@ -3,6 +3,8 @@
     src: url(../assets/fonts/Retro\ Gaming.ttf);
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+//importar material icons
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 *{
     margin: 0;
     padding: 0;
@@ -119,7 +121,27 @@ p{
     padding: 2rem;
     gap: 1rem;
     font-family: 'Retro';
+    position: relative;
     justify-items: center;
+}
+.btnExit{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    & span{
+        font-size: 1.5rem;
+    }
 }
 .pokeSelect img{
     width: 15rem;
@@ -240,6 +262,9 @@ color: #000;
 }
 .containerTipos{
     display: flex;
+    > div{
+        padding: 0;
+    }
 }
 /* TABLET */
 @media screen and (max-width: 992px) {

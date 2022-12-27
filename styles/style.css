@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @font-face {
   font-family: "Retro";
   src: url(../assets/fonts/Retro\ Gaming.ttf);
@@ -121,7 +122,28 @@ p {
   padding: 2rem;
   gap: 1rem;
   font-family: "Retro";
+  position: relative;
   justify-items: center;
+}
+
+.btnExit {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.btnExit span {
+  font-size: 1.5rem;
 }
 
 .pokeSelect img {
@@ -257,6 +279,9 @@ p {
 
 .containerTipos {
   display: flex;
+}
+.containerTipos > div {
+  padding: 0;
 }
 
 /* TABLET */

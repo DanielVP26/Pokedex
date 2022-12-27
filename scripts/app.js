@@ -140,6 +140,7 @@ function pintarPokemon(data){
     tipos = tipos.join(', ')
     div.innerHTML = ``
     div.innerHTML = `
+    <button class="btnExit"><span class="material-icons" id="btnExit">close</span></button>
     <div class="imagenPrincipal d-flex flex-column">
             <div class="ID">
                 <h1>
@@ -172,6 +173,11 @@ function pintarPokemon(data){
     `
     pokeContainer.appendChild(div)
     pokeContainer.scrollIntoView({behavior: 'smooth'});
+    const btnExit = document.querySelector('#btnExit')
+    btnExit.addEventListener('click', () => {
+        pokeContainer.innerHTML = ''
+    })
+    
     //location.href = "#pokeContainer"
 }
 
