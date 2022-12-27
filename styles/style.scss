@@ -226,6 +226,24 @@ p{
     top: 0.5rem;
     font-family: 'Retro';
 }
+.controlRangeContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-block: 1rem;
+    & button{
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        color: white;
+        font-size: 1.5rem;
+    }
+}
+.form-range{
+    padding-inline: 1rem;
+}
 .typePokemon{
     width: 100%;
     display: flex;

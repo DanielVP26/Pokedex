@@ -2,6 +2,20 @@ function showVal(newVal) {
     document.getElementById("valBox").innerHTML = `1- ${newVal}`;
 }
 
+const restarRange = document.querySelector('#restarRange')
+const sumarRange = document.querySelector('#sumarRange')
+const range = document.querySelector('#rangoPokemon')
+
+restarRange.addEventListener('click', () => {
+    range.value = parseInt(range.value) - 1
+    showVal(range.value)
+})
+sumarRange.addEventListener('click', () => {
+    range.value = parseInt(range.value) + 1
+    showVal(range.value)
+})
+
+
 let btnSearchAdvance = document.querySelectorAll('.btnSearchAdvance')
 const btnBusqueda = document.querySelector('#btnBusqueda')
 const btnSearchArray = [...btnSearchAdvance]
