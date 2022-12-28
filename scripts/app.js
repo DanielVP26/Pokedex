@@ -204,7 +204,7 @@ searchInput.addEventListener('input', () => {
             ulSearch.appendChild(li)
             li.addEventListener('click', () => {
                 const id = listaNombresPokemon.indexOf(e) + 1
-                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+                fetch(`https://pokeapi.co/api/v2/pokemon/${e}`)
                     .then( response => response.json())
                     .then( data => {
                         pokeContainer.innerHTML = ''
