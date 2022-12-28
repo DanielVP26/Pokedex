@@ -209,6 +209,7 @@ searchInput.addEventListener('input', () => {
                     .then( data => {
                         pokeContainer.innerHTML = ''
                         pintarPokemon(data)
+                        ulSearch.innerHTML = ''
                     })
             })
         })
