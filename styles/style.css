@@ -114,6 +114,24 @@ p {
   border-radius: 1em;
 }
 
+.buscadorContainer {
+  position: relative;
+}
+
+.listaBusqueda {
+  z-index: 999;
+  position: absolute;
+  width: 100%;
+  list-style: none;
+  margin-top: 10px;
+  color: black;
+  background: white;
+  border-radius: 1rem;
+}
+.listaBusqueda li {
+  cursor: pointer;
+}
+
 .pokeSelect {
   background-color: rgb(58, 58, 58);
   display: grid;

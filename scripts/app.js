@@ -19,8 +19,6 @@ sumarRange.addEventListener('click', () => {
 let btnSearchAdvance = document.querySelectorAll('.btnSearchAdvance')
 const btnBusqueda = document.querySelector('#btnBusqueda')
 const btnSearchArray = [...btnSearchAdvance]
-let inicio = 1
-let fin = 20
 
 function comprobar (e){
     return e.getAttribute("aria-expanded") == true
@@ -42,7 +40,8 @@ const loadMore = document.querySelector('#loadMore')
 const pokemonGeneral = document.querySelector('#pokemonGeneral')
 const pokeContainer = document.querySelector('#pokeContainer')
 let URL = "https://pokeapi.co/api/v2/pokemon/";
-
+let inicio = 1
+let fin = 20
 window.onload = cargar
 
 let pokemonCard 
@@ -59,30 +58,17 @@ function cargar(){
         listaPromesas.push(promesa)
     }
     Promise.all(listaPromesas).then(()=>{
-        
         listaDatos.sort( ({id: id1}, {id: id2}) => {
             if(id1 > id2) return 1
             if(id1 < id2) return -1
         })
-        
         listaDatos.forEach( e => mostrarPokemon(e))
         pokemonCard = document.querySelectorAll('.pokemonCard')
         listaPokemonCard = [...pokemonCard]
-        
         inicio += 20
         fin += 20
         loadMore.disabled = false
-        /* listaPokemonCard.forEach((e)=>{
-            e.addEventListener('click', () => {
-                pokeContainer.innerHTML = ''
-                pintarPokemon(listaDatos[e.id-1])
-                console.log(listaDatos[e.id-1].id)
-            })
-        }) */
-
     })
-    
-   
 }
 
 
@@ -191,78 +177,42 @@ function pintarPokemon(data){
     btnExit.addEventListener('click', () => {
         pokeContainer.innerHTML = ''
     })
-    
-    //location.href = "#pokeContainer"
 }
 
-/* <div class="pokeSelect">
-        <div class="imagenPrincipal d-flex flex-column">
-            <div class="ID">
-                <h1>
-                    #007
-                </h1>
-            </div>
-            <img class="imgBanner"
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
-                alt="">
-            <h1>
-                SQUIRTLE
-            </h1>
-        </div>
-        <div class="infoPrincipal">
-            <div class="bg-green">
-                <p>Tipo: Water</p>
-                <p>Debilidad: Electrico, Planta</p>
-                <p>Ps: 10</p>
-                <p>Ataque: 10</p>
-                <p>Defensa: 10</p>
-                <p>Ataque especial 10:</p>
-                <p>Defensa especial: 10</p>
-                <p>Velocidad: 10</p>
-            </div>
-            <div class="d-flex bg-green gap-5">
-                <p>Altura: 0,5M</p>
-                <p>Peso: 9 Kg</p>
-            </div>
-        </div>
-    </div> */
+const listaNombresPokemon = []
 
-/* <div class="pokemonCard">
-            <div class="idPokemon">
-                <p>
-                    #25
-                </p>
-            </div>
-            <div class="imgPokemonDiv">
-                <img class="imgPokemon"
-                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
-                    alt="pikachu">
-            </div>
-            <div class="namePokemon">
-                <h4>
-                    Pikachu
-                    </h3>
-            </div>
-            <div class="typePokemon">
-                <button class="btn-tipo electric">
-                    Eléctrico
-                </button>
-                <button class="btn-tipo normal">
-                    Normal
-                </button>
-            </div>
-        </div>
- */
+fetch('https://pokeapi.co/api/v2/pokemon?limit=1154&offset=0')
+    .then( response => response.json())
+    .then( data => data.results.forEach( e => listaNombresPokemon.push(e.name)) )
 
-        /* pokemonCard.forEach( (e) => {
-            e.addEventListener('click', () => {
-                fetch(`https://pokeapi.co/api/v2/pokemon/${e.id}`)
-                .then( response => response.json())
-                .then( data => {
-                    pokeContainer.innerHTML = ''
-                    pintarPokemon(data)
-                }
-                )
+function search(array, value){
+    return array.filter(item => item.toLowerCase().includes(value.toLowerCase()) )
+}
+
+const searchInput = document.querySelector('#search')
+searchInput.addEventListener('input', () => {
+    const value = searchInput.value
+    const ulSearch = document.querySelector('#ulSearch')
+    if(value != ''){
+        const listaResultados = search(listaNombresPokemon, value)
+        const fiveValue = listaResultados.slice(0,5)
+        ulSearch.innerHTML = ''
+        fiveValue.forEach((e)=>{
+            const li = document.createElement('li')
+            li.classList.add("list-group-item")
+            li.innerText = e.toUpperCase()
+            ulSearch.appendChild(li)
+            li.addEventListener('click', () => {
+                const id = listaNombresPokemon.indexOf(e) + 1
+                fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+                    .then( response => response.json())
+                    .then( data => {
+                        pokeContainer.innerHTML = ''
+                        pintarPokemon(data)
+                    })
             })
-            
-        }) */
+        })
+    }else{
+        ulSearch.innerHTML = ''
+    }
+})
